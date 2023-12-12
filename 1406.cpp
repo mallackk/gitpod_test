@@ -7,21 +7,8 @@ using namespace std;
 
 int main(void) {
     
-    ios::sync_with_stdio(0);
-	cin.tie(0);
-
-
-    // list<int> L = {3,7};
-    // list<int>::iterator cur = L.begin(); // cur는 3을 가리킴.
-    // cout<<L.front();
-
-
-
-
-
-
-
-
+     ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
     list<char> L;
     list<char>::iterator cur;
@@ -38,10 +25,35 @@ int main(void) {
     cur = L.end();
 
     for(int i=0; i<n; i++) {
-        while() //여기서 어케해야하지..
+        char c;
+        cin >> c;
+        
+        if(c == 'L') {
+            if(cur != L.begin())
+                cur--;            
+        }
+
+        else if(c == 'D') {
+            if(cur != L.end())
+                cur++;
+        }
+
+        else if(c == 'B') {
+            if(cur != L.begin()) {
+                cur = L.erase(--cur);
+            }
+        }
+
+        else if(c == 'P') {
+            char alphabet;
+            cin >> alphabet;
+            
+            L.insert(cur, alphabet);
+
+        }
     }
-
-
+   
+    //마지막에 출력하는 부분 다시 생각해보자...
     return 0;
 }
 
