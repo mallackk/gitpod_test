@@ -7,7 +7,7 @@ using namespace std;
 
 int main(void) {
     
-     ios::sync_with_stdio(false);
+    ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     list<char> L;
@@ -53,7 +53,9 @@ int main(void) {
         }
     }
    
-    //마지막에 출력하는 부분 다시 생각해보자...
+    for(cur=L.begin(); cur !=L.end(); cur++) {
+        cout << *cur;
+    }
     return 0;
 }
 

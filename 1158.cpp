@@ -1,46 +1,45 @@
 #include <iostream>
 #include <list>
-#include <algorithm>
 
 using namespace std;
 
 int main(void) {
-    ios::sync_with_stdio(0);
+    ios::sync_with_stdio(false);
     cin.tie(0);
-    int n;
-    int k;
-
+    int n, k;
     cin >> n >> k;
-
     list<int> Y;
-    list<int>::iterator iter=Y.begin();
-
     for(int i=1; i <= n; i++) {
         Y.push_back(i);
     }
+    list<int>::iterator kill = Y.begin();
+   
+    cout << "<";
 
-    cout<< "<";
-
-    //이건 그냥 Y.size()와 같다
-    while(Y.size()) {
+    while(Y.size() > 1) {
         for(int i=0; i < k-1; i++) {
-            if(++iter == Y.end()) { // ++는 이렇게 하는거구나.....
-                iter = Y.begin();
-                continue;
-            }
-            ++iter;
+            ++kill;
+            if(kill == Y.end()) {
+                kill = Y.begin();
         }
-        //만약 N이 1이라면?
-        if(Y.size() == 1) 
-            cout << *iter;
-        else
-            cout << *iter << ", ";
-        
-        iter = Y.erase(iter);
-        if(iter== Y.end()) {
-            iter = Y.begin();
+    } // 여기까지가 이제 죽일사람 정하는거(이부분을 모르겠다)
+        cout << *kill << ", ";
+
+        auto temp = next(kill);   
+        if(temp == Y.end()) {
+            temp = Y.begin();
         }
+        kill = Y.erase(kill);
+        if(kill == Y.end()) {
+            kill = temp;
+        }
+        //이제 죽여야지
     }
-    cout << ">";
+
+
+    cout <<*Y.begin()<< ">"; // 마지막 원소인지를 확인하고 콤마 출력여부 결정.
     return 0;
 }
+
+//왜안될까..?
+//왜 될까.
