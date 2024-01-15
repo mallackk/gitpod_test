@@ -6,7 +6,7 @@
 // 216 = 101X + 11Y + 2Z 와 부정방정식?
 // 분해합 - 각자리수 = 생성자.
 // 아니 풀이는 뭐 그래.. 1부터 N까지 다 해보면되지. 그래 맞아.
-
+// 범위를 좁히는게 관건이다.
 // 숫자의 자릿수 구하기 -> 나머지를 이용한다. (정수인 경우)
 // 왜 이생각을 못했지 ? ㅅ시발
 // 그리고 sprintf라는 것도 있다더라. 찾아보고 노션에 기록하자
@@ -14,13 +14,27 @@
 #include <algorithm>
 using namespace std;
 
-int main(int argc, char** argv) {
+
+int main(int argc, const char* argv[]) {
     int num;
+    int result =0;
     cin >> num;
 
-    while(true) {
-        for(int i=; i < num; i++) {
+    for(int i=num-54; i < num; i++) {
+        int sum = i;
+        int n = i;
+        while(n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        if(sum == num) {
+            result = i;
+            break;
         }
     }
+   
+    cout << result << endl;
     return 0;
 }
+
+ 
