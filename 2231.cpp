@@ -9,11 +9,12 @@
 
 // 숫자의 자릿수 구하기 -> 나머지를 이용한다. (정수인 경우)
 // 왜 이생각을 못했지 ? ㅅ시발
+// 그리고 sprintf라는 것도 있다더라. 찾아보고 노션에 기록하자
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
-int main(int argc, const char* argv[]) {
+int main(int argc, char** argv) {
     int num;
     cin >> num;
 
