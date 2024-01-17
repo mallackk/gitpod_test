@@ -13,13 +13,18 @@ class Person {
     string name;
 };
 
+bool compare(const Person
 int main(void) {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
+    
     int n;
     cin >> n;
     
+    vector<tuple<int, int ,string>> v;
+    
+
     
 }
