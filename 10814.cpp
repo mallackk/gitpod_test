@@ -8,15 +8,13 @@
 #include <string>
 using namespace std;
 
-class Person {
-    int age;
-    string name;
-};
-
-bool compare (pair<int, string> p1, pair<int, string> p2) {
+// class Person {
+//     int age;
+//     string name;
+// };
+bool compare(pair<int, string> p1, pair<int, string> p2) {
     return p1.first < p2.first;
 }
-// 대체뭐지
 
 int main(void) {
     int n;
@@ -24,14 +22,16 @@ int main(void) {
 
     pair<int, string> p;
     vector<pair<int, string>> v;
+
     for(int i=0; i < n; i++) {
         cin >> p.first >> p.second;
         v.push_back(p);
     }
-    stable_sort(v.begin(), v.end(), compare);
+    stable_sort(v.begin(), v.end(), compare) ;
     for(int i=0; i < n; i++) {
-        cout << v[i].first << ' ' << 
+        cout << v[i].first << ' ' << v[i].second << '\n';
     }
 
     return 0;
+
 }
