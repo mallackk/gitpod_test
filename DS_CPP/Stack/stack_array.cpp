@@ -61,3 +61,41 @@ int main(void) {
     return 0;
 }*/
 
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+typedef struct ArrayStack {
+    int top;
+    int capacity;
+    int* arr;
+} Stack;
+
+// 주어진 capacity 크기로 Stack 생성
+// 반환 값: 성공시 할당한 메모리의 첫번째 주소 리턴, 실패시 NULL리턴
+Stack* createStack(int capacity) {
+    Stack* stack = (Stack*)malloc(sizeof(Stack));
+    if(!stack)
+        return NULL;
+    stack->capacity = capacity;
+    stack->top = -1;
+    stak->arr = (int*)malloc(stack->capacity *sizeof(int));
+    return stack;
+}
+
+void IsEmpty (Stack* stack) {
+    if(stack->top == -1) {
+        printf("stack is empty.\n");
+        return;
+    }
+    else {
+        printf("stack is not empty.\n");
+    }
+}
+
+int peek (Stack* stack) {
+    if(IsEmpty(stack)) {
+        
+    }
+}
