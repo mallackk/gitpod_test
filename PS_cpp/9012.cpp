@@ -1,9 +1,12 @@
 // 접근을 어떻게 해야할까?
-// 마지막에 ( 와 ) 의 값이 맞아야한다?
+// 마지막에 ( 와 ) 의 값이 맞아야한다? - 이건 틀렸다. 반례:())(()
 // 일단 방법은 여러가지일듯.
-
+// 스택으로 접근해야하는 이유?
+// ) 가 이전에 ( 이 나온 만큼보다 더 나오면 그건 잘못된 표기법임.
+// 아하!
+// 그럼 stack의 push를 (로 두고 )를 pop으로.
 #include <iostream>
-#include <algorithm>
+#include <stack>
 #include <string>
 
 using namespace std;
@@ -17,23 +20,31 @@ int main(void) {
     cin >> num;
 
     while(num--) {
-        string input;
-        cin >> input;
-        // int L = 0, R = 0;
-        // for(int i = 0; i < input.length(); i++) {
-        //     if(input[i] == '(')
-        //         L += 1;
-        //     else
-        //         R += 1;
-        // 왜 틀린건데.
-        // ())(() 이건 예상못했다...
+        stack<char> st;
+        string s;
+        cin >> s;
+
+        for(int i=0; i < s.length(); i++) {
+            if(st.empty()) {
+                st.push(s[i]);
+            }
+            else {
+                if(st.top() == '(' && s[i]==')') {
+                    st.pop();
+                }
+                else
+                    st.push(s[i]);
+            }
         }
-        
-        if(L == R) 
-            cout << "YES" <<"\n";
-        else 
-            cout << "NO" << "\n";
+    if(st.empty()) {
+        cout << "YES" << "\n";
+    }
+    else {
+        cout << "NO" << "\n";
     }
     
+    }
     return 0;
 }
+
+
