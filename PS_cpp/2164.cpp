@@ -7,6 +7,7 @@
 // 한 cycle 더 돌면 남는건 4의 배수 오름차순 정렬.
 // 예 ) 6 -> 4, 8 -> 8, 12 -> 8, 16 -> 16.
 
+// 그냥 queue로 생각하면 편하다...
 #include <iostream>
 #include <algorithm>
 
@@ -15,10 +16,19 @@ using namespace std;
 int main(void) {
     int n;
     cin >> n;
-   
+    queue<int> q;
 
-  
+    for(int i=0; i < n; i++) {
+        q.push(i);
+    } // 카드 덱 생성
 
+    while(q.size() != 1) {
+        q.pop();
+        q.push(q.front());
+        q.pop();
+    }
+    
+    cout << q.pop() << "\n";
 
-
+    return 0;
 }
