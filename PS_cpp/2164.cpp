@@ -9,16 +9,19 @@
 
 // 그냥 queue로 생각하면 편하다...
 #include <iostream>
-#include <algorithm>
+#include <queue>
 
 using namespace std;
 
 int main(void) {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     int n;
     cin >> n;
     queue<int> q;
 
-    for(int i=0; i < n; i++) {
+    for(int i=1; i <= n; i++) {
         q.push(i);
     } // 카드 덱 생성
 
@@ -28,7 +31,7 @@ int main(void) {
         q.pop();
     }
     
-    cout << q.pop() << "\n";
+    cout << q.front() << "\n";
 
     return 0;
 }
