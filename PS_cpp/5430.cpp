@@ -3,7 +3,7 @@
 // queue로 구현해도 가능?
 
 #include <iostream>
-#include <queue>
+#include <vector>
 #include <deque>
 #include <algorithm>
 #include <string>
@@ -20,17 +20,24 @@ int main(void) {
 
     while(test--) {
         string s;
-        cin >> s;
         int n;
+        cin >> s;
         cin >> n;
         int arr[n];
 
         cout << "[";
         for(int i=0; i < n; i++) {
             cin >> arr[i];
-            
+            cout << ",";
         }
         cout << "]" << "\n";
-    }
 
+        deque<int> dq;
+
+        for(auto c : s) {
+            if(c == 'R')
+        }
+    }    
+
+    
 }
