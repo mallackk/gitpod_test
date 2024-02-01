@@ -16,28 +16,31 @@ int main(void) {
     cout.tie(nullptr);
 
     int test;
+    
     cin >> test;
-
     while(test--) {
-        string s;
-        int n;
-        cin >> s;
-        cin >> n;
-        int arr[n];
-
-        cout << "[";
-        for(int i=0; i < n; i++) {
-            cin >> arr[i];
-            cout << ",";
+       deque<int> dq;
+       string order;
+       string str;
+       int n;
+       cin >> order;
+       cin >> n;
+       cin >> str;
+       string s = "";
+       for(int i=0; i < str.length(); i++) {
+        if(isdigit(str[i])) {
+            s += str[i];
         }
-        cout << "]" << "\n";
-
-        deque<int> dq;
-
-        for(auto c : s) {
-            if(c == 'R')
+        else {
+            if(!s.empty()) {
+                dq.push_back(stoi(s));
+                s="";
+            }
         }
-    }    
-
+       }
+        
+    }
     
 }
+
+/
