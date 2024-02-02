@@ -16,31 +16,18 @@ int main(void) {
     cout.tie(nullptr);
 
     int test;
-    
+    int n;
     cin >> test;
     while(test--) {
        deque<int> dq;
        string order;
-       string str;
-       int n;
-       cin >> order;
-       cin >> n;
-       cin >> str;
+       string str; 
+       cin >> order; // RDD
+       cin >> n; // 횟수
+       cin >> str; // 문자열로 받아서 원소 개수 세야됨
        string s = "";
-       for(int i=0; i < str.length(); i++) {
-        if(isdigit(str[i])) {
-            s += str[i];
-        }
-        else {
-            if(!s.empty()) {
-                dq.push_back(stoi(s));
-                s="";
-            }
-        }
-       }
+      
         
     }
     
 }
-
-/
