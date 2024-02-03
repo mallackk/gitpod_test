@@ -1,6 +1,4 @@
-// 만약 vector로 구현한다면
-// D, R 구현 가능.
-// queue로 구현해도 가능?
+// 만약 vector로 구현한다면?
 
 #include <iostream>
 #include <deque>
@@ -17,12 +15,12 @@ int main(void) {
     // 이게 여기 들어가면안되는 이유가 뭐지...
     int test, n;
     cin >> test;
+
     while(test--) {
        deque<int> dq;
-       string order;
+       string order, str;
        bool reverse = false;
        bool error = false;
-       string str;
        cin >> order;
        cin >> n; 
        cin >> str; 
@@ -48,32 +46,30 @@ int main(void) {
         }
     //  for(int i=0; i < order.length(); i++)대신 auto를 쓰자!
         for(auto o : order) {
-            if(o == 'R') {
-            reverse = !reverse;
-            }
-            if(o =='D') {
+            if(o == 'R')  
+                reverse = !reverse; 
+            else {
                 if(dq.empty()) {
                     cout << "error" << "\n";
                     error = true;
                     break;
-                }
-                else if(!reverse) {
+                    }
+                if(!reverse) 
                     dq.pop_front();
-                }
                 else
-                    dq.pop_back();
-                }
+                    dq.pop_back();  
             }
+        }
 
             if(!error) {
                 cout << "[";
+            
             if(!reverse) {
                 for(auto o = dq.begin(); o != dq.end(); o++) {
-                    if(o == dq.end() -1) {
-                        cout << *o;
-                    }
+                    if(o == dq.end() -1) 
+                        cout << *o;                 
                     else
-                        cout << *o << ", ";
+                        cout << *o << ",";
                 }
             }
             else {
@@ -82,10 +78,9 @@ int main(void) {
                         cout << *o;
                     }
                     else
-                        cout << *o << ", ";
+                        cout << *o << ",";
                 }
             }
-
             cout << "]\n";
             }
               
